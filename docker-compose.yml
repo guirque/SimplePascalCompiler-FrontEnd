@@ -1,0 +1,9 @@
+services:
+  simplespascalcompilerfrontend:
+    build: .
+    ports:
+      - ${PORT:-3000}:${PORT:-3000}
+    volumes:
+      - .:/simplepascalfrontend/
+    env_file:
+      - .env
