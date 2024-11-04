@@ -1,0 +1,10 @@
+#output
+{
+    background-color: #2F323D;
+    width: 50vw;
+    height: 70vh;
+    grid-area: output;
+    padding: var(--padding);
+    text-wrap: auto;
+    overflow-y: auto;
+}

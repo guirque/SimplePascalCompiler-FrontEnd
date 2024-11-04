@@ -1,0 +1,26 @@
+#senddatabutton
+{
+    background-color: #2F323D;
+    padding: 0.2rem;
+    color: white;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    padding: 5px;
+    gap: 5px;
+    right: 5px;
+    top: 5px;
+}
+
+#senddatabutton:hover
+{
+    background-color: #494e5f;
+}
+
+#senddatabutton img
+{
+    height: 3vh;
+}

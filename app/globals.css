@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+*
+{
+  box-sizing: border-box;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
 }
@@ -9,9 +14,22 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
+    --padding: 5px;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
+  overflow-x: hidden;
+}
+
+#mainArea
+{
+  display: grid;
+  height: 90vh;
+  width: 100vw;
+  grid-template-areas: 
+  "code output"
+  "code output"
+  "code console";
 }

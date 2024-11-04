@@ -1,0 +1,17 @@
+.area
+{
+    grid-area: code;
+    color: white;
+    height: 100%;
+    width: 50vw;
+    position: relative;
+}
+
+.textarea
+{
+    background-color: #171717;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    resize: none;
+}
