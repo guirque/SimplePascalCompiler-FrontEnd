@@ -1,0 +1,10 @@
+.nav_component
+{
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #676F8B;
+    height: 10vh;
+}
