@@ -24,3 +24,14 @@
     justify-content: end;
     background-color: var(--code-area);
 }
+
+.code
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.propertyHighlight
+{
+    color: var(--property-highlight);
+}
