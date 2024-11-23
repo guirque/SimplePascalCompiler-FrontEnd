@@ -8,10 +8,31 @@ interface sendDataButtonParams
     code: string
 }
 
+
+const requestLexicalAnalysis = async (codeToSend: string, changeOutput:Function) =>
+    {
+        console.log("Code received: ", codeToSend);
+        const url = `http://${process.env.SERVER ?? 'localhost'}:${process.env.SERVER_PORT ?? 3000}/LexicalAnalysis`;
+        const response = await fetch(url, 
+            {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    code: codeToSend
+                })
+            });
+        changeOutput(await response.json());
+    }
+    
+
+//Syntactic Analysis Request
 const sendCode = async (codeToSend: string, changeOutput:Function) =>
 {
     console.log("Code received: ", codeToSend);
-    const url = `http://${process.env.SERVER ?? 'localhost'}:${process.env.SERVER_PORT ?? 3000}/LexicalAnalysis`;
+    const url = `http://${process.env.SERVER ?? 'localhost'}:${process.env.SERVER_PORT ?? 3000}/SyntacticAnalysis`;
     const response = await fetch(url, 
         {
             method: "POST",
@@ -23,10 +44,8 @@ const sendCode = async (codeToSend: string, changeOutput:Function) =>
                 code: codeToSend
             })
         });
-    changeOutput(
-        {
-            lexical: (await response.json())
-        });
+    changeOutput(await response.json());
+    console.log("Answer received");
 }
 
 const SendDataButton = (params:any) =>
@@ -39,7 +58,6 @@ const SendDataButton = (params:any) =>
                 sendCode(codeForRequest, params.changeOutput);
             }}></input>
         <img src="Run.png"></img>
-    
     </div>);
 }
 export default SendDataButton;

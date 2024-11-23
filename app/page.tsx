@@ -11,7 +11,7 @@ import Output from './components/Output/Output';
 export default function Home() {
 
   const [code, setCode] = useState('');
-  const [output, setOutput] = useState({lexical: '', sintatic: '', semantic: '', exec: ''});
+  const [output, setOutput] = useState({lexical: '', syntactic: '', semantic: '', exec: '', errors: [], warnings: []});
 
   return (<>
   
@@ -20,7 +20,7 @@ export default function Home() {
   <div id='mainArea'>
     <Codearea changeCode={setCode} code={code} changeOutput={setOutput}></Codearea>
     <Output output={output}></Output>
-    <Console></Console>
+    <Console output={output}></Console>
   </div>
   </form>
   
