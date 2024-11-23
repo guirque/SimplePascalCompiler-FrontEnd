@@ -4,4 +4,18 @@
     height: 20vh;
     width: 50vw;
     grid-area: console;
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding);
+    overflow-y: auto;
+}
+
+.error
+{
+    color: red;
+}
+
+.warning
+{
+    color: rgb(255, 255, 92);
 }

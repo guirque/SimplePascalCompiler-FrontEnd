@@ -1,0 +1,8 @@
+.phasebutton
+{
+    width: 10vw;
+    height: 5vh;
+    background-color: var(--darker-shade);
+    border-radius:  2rem 2rem 0 0;
+    margin-top: 0.5rem;
+}
