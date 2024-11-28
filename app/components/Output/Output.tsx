@@ -1,6 +1,5 @@
 import compilationResponse from "@/app/Interfaces/compilationResponse";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { JsxElement } from "typescript";
 
 import style from './Output.module.css'
 import PhaseButton from "./PhaseButton/PhaseButton";
@@ -36,7 +35,6 @@ const Output = (params:any) =>
 
     let data: compilationResponse = params.output;
     let outputData: string | React.JSX.Element[] = `Click 'Run' to view an output.`;
-    let elementOutput: Element[];
 
     if(data.lexical) switch(currentPhase)
     {
@@ -55,8 +53,7 @@ const Output = (params:any) =>
                 });
             break;
         case 'Syntactic':
-            outputData = [renderTree(data.syntatic)];
-            //outputData = JSON.stringify(data.syntatic);
+            outputData = [renderTree(data.syntactic)];
             break;
         case 'Semantic':
             outputData = JSON.stringify(data.semantic);

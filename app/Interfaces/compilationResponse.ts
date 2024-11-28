@@ -1,7 +1,7 @@
 export default interface compilationResponse
 {
     lexical: any[],
-    syntatic: any,
+    syntactic: any,
     semantic: any,
     errors?: string[],
     warnings?: string[]
