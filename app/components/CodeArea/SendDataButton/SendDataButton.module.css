@@ -18,6 +18,7 @@
 #senddatabutton:hover
 {
     background-color: #494e5f;
+    cursor: pointer;
 }
 
 #senddatabutton img

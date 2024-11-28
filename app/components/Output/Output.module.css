@@ -1,10 +1,71 @@
 #output
 {
-    background-color: #2F323D;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+#outputArea
+{
+    background-color: var(--shade);
     width: 50vw;
     height: 70vh;
     grid-area: output;
     padding: var(--padding);
     text-wrap: auto;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#buttons
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    background-color: var(--code-area);
+    height: var(--options-height);
+}
+
+.code
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.propertyHighlight
+{
+    color: var(--property-highlight);
+}
+
+.node
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+    padding: 0.25rem;
+    height: auto;
+    width: max-content;
+}
+
+.nodechildren
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.nonterminal
+{
+    border: black thin solid;
+    /*border-right: none;
+    border-bottom: none;*/
+}
+
+.terminal
+{
+    border-radius: 20%;
+    height: fit-content;
+    border: groove orange thin;
+    align-items: center;
+    justify-content: center;
 }
