@@ -23,6 +23,7 @@
     align-items: center;
     justify-content: end;
     background-color: var(--code-area);
+    height: var(--options-height);
 }
 
 .code
@@ -34,4 +35,37 @@
 .propertyHighlight
 {
     color: var(--property-highlight);
+}
+
+.node
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+    padding: 0.25rem;
+    height: auto;
+    width: max-content;
+}
+
+.nodechildren
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.nonterminal
+{
+    border: black thin solid;
+    /*border-right: none;
+    border-bottom: none;*/
+}
+
+.terminal
+{
+    border-radius: 20%;
+    height: fit-content;
+    border: groove orange thin;
+    align-items: center;
+    justify-content: center;
 }
