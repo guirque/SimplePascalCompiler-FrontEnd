@@ -34,7 +34,7 @@ const Output = (params:any) =>
     const [currentPhase, setCurrentPhase] = useState('Lexical');
 
     let data: compilationResponse = params.output;
-    let outputData: string | React.JSX.Element[] = `Click 'Run' to view an output.`;
+    let outputData: string | React.JSX.Element[] | React.JSX.Element = `Click 'Run' to view an output.`;
 
     if(data.lexical) switch(currentPhase)
     {
@@ -56,7 +56,47 @@ const Output = (params:any) =>
             outputData = [renderTree(data.syntactic)];
             break;
         case 'Semantic':
-            outputData = JSON.stringify(data.semantic);
+            let headers: React.JSX.Element[] = [];
+            let rows: React.JSX.Element[] = [];
+
+            let keys = data.semantic[0] ? Object.keys(data.semantic[0]) : [];
+            headers = data.semantic[0] ? keys.map((key, i)=><th key={'key-' + key + i}>{key}</th>) : [<th key={'key-0'}>{'Empty Table'}</th>];
+            rows = data.semantic.map((register: any, i:number)=> 
+            <tr key={'row-' + i}>
+                {
+                    keys.map((key, i) =>
+                        {
+                            return <td key={'data-' + key + i}>{register[key]}</td>
+                        })
+                }
+            </tr>);
+
+            outputData = 
+            <table id={style.table}>
+                    <style>
+                    {
+                        `
+                            tr:nth-child(even)
+                            {
+                                background-color: rgba(0, 0, 0, 0.3);
+                            }
+
+                            td
+                            {
+                                padding: 2px;
+                            }
+                            
+                        `
+                    }
+                    </style>
+                <thead>
+                    <tr>{headers}</tr>
+                </thead>
+                <tbody>
+                    {rows}
+                </tbody>
+            </table>;
+
             break;
     }
 

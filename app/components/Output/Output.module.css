@@ -69,3 +69,9 @@
     align-items: center;
     justify-content: center;
 }
+
+#table
+{
+    text-align: left;
+    width: 160%;
+}
