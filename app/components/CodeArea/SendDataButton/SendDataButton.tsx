@@ -3,35 +3,9 @@ import React, { BaseSyntheticEvent, MouseEventHandler } from "react";
 
 import style from './SendDataButton.module.css'
 
-interface sendDataButtonParams
-{
-    code: string
-}
-
-
-const requestLexicalAnalysis = async (codeToSend: string, changeOutput:Function) =>
-    {
-        console.log("Code received: ", codeToSend);
-        const url = `http://${process.env.SERVER ?? 'localhost'}:${process.env.SERVER_PORT ?? 3000}/LexicalAnalysis`;
-        const response = await fetch(url, 
-            {
-                method: "POST",
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    code: codeToSend
-                })
-            });
-        changeOutput(await response.json());
-    }
-    
-
-//Syntactic Analysis Request
+// Request
 const sendCode = async (codeToSend: string, changeOutput:Function) =>
 {
-    console.log("Code received: ", codeToSend);
     const url = `http://${process.env.SERVER ?? 'localhost'}:${process.env.SERVER_PORT ?? 3000}/SyntacticAnalysis`;
     const response = await fetch(url, 
         {
