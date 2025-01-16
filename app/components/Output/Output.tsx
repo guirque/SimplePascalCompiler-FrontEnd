@@ -53,9 +53,11 @@ const Output = (params:any) =>
                 });
             break;
         case 'Syntactic':
+            if(!data.syntactic) break;
             outputData = [renderTree(data.syntactic)];
             break;
         case 'Semantic':
+            if(!data.semantic) break;
             let headers: React.JSX.Element[] = [];
             let rows: React.JSX.Element[] = [];
 
