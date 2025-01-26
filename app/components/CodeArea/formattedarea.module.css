@@ -1,0 +1,47 @@
+.lineNumber
+{
+    margin-right: 0.2em;
+    width: 2em;
+    display: inline-block;
+}
+
+.variable
+{
+    color: rgb(200, 255, 200);
+}
+
+.error
+{
+    color: red;
+    text-decoration:wavy;
+    text-decoration-line: underline;
+}
+
+.formattedarea
+{
+    background-color: var(--code-area);
+    height: 45vh;
+    width: 50vw;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.keyword
+{
+    color: rgb(120, 219, 252);
+}
+
+.string
+{
+    color: rgb(0, 255, 136);
+}
+
+.number
+{
+    color: rgb(163, 0, 163);
+}
+
+.tab
+{
+    margin-left: 1rem;
+}

@@ -1,7 +1,7 @@
 .console
 {
     background-color: #060606;
-    height: 20vh;
+    height: 30vh;
     width: 50vw;
     grid-area: console;
     display: flex;
