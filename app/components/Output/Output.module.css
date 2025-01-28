@@ -75,3 +75,13 @@
     text-align: left;
     width: 160%;
 }
+
+.cmdLabel
+{
+    color: red;
+}
+
+.cmdComment
+{
+    color: grey;
+}

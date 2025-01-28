@@ -55,7 +55,7 @@ const symbols =
     ERROR: /\S+/
 }
 
-const keywords = ['TYPE', 'TYPE_ARRAY', 'TYPE_RECORD', 'WHILE', 'DO', 'TO', 'OF', 'WRITE', 'READ', 'PROCEDURE', 'FUNCTION', 'DECLARATION_CONST', 'DECLARATION_TYPE', 'IF', 'IF_THEN', 'VARIABLE', 'BLOCK_BEGIN', 'BLOCK_END', 'FOR'];
+const keywords = ['TYPE', 'TYPE_ARRAY', 'TYPE_RECORD', 'WHILE', 'DO', 'TO', 'OF', 'WRITE', 'READ', 'PROCEDURE', 'FUNCTION', 'DECLARATION_CONST', 'DECLARATION_TYPE', 'IF', 'IF_THEN', 'VARIABLE', 'BLOCK_BEGIN', 'BLOCK_END', 'FOR', 'ELSE'];
 
 function generateTokenList(code: string) {
     

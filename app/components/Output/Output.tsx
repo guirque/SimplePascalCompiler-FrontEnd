@@ -98,11 +98,22 @@ const Output = (params:any) =>
                     {rows}
                 </tbody>
             </table>;
-
+            break;
+        case 'Interm. Code':
+            if(!data.intermediaryCode) break;
+            outputData = data.intermediaryCode.map((command:string, i:number)=>
+                {
+                    let cmdType = undefined;
+                    if(command.match(/.+:$/)) cmdType = 'cmdLabel';
+                    else if(command.includes('\#')) cmdType = 'cmdComment';
+                    
+                    if(cmdType) return <code key={'cmd'+i} className={style[cmdType]}>{command}{'\n'}</code>
+                    else return <code key={'cmd'+i}>{command}{'\n'}</code>
+                });
             break;
     }
 
-    let types = ['Lexical', 'Syntactic', 'Semantic'];
+    let types = ['Lexical', 'Syntactic', 'Semantic', 'Interm. Code'];
     let elements = types.map((phase)=>
         {
             const colorAttr = (currentPhase == phase) ? 'var(--shade)' :  'var(--darker-shade)';

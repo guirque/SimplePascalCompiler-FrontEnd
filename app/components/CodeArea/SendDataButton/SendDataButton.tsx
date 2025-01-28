@@ -6,7 +6,7 @@ import style from './SendDataButton.module.css'
 // Request
 const sendCode = async (codeToSend: string, changeOutput:Function) =>
 {
-    const url = `http://${process.env.SERVER ?? 'localhost'}:${process.env.SERVER_PORT ?? 3000}/SemanticAnalysis`;
+    const url = `http://${process.env.SERVER ?? 'localhost'}:${process.env.SERVER_PORT ?? 3000}/IntermediaryCode`;
     const response = await fetch(url, 
         {
             method: "POST",
