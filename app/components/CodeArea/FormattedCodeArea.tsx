@@ -86,6 +86,7 @@ function generateTokenList(code: string) {
 
         if(line?.[0] == 'end') numOfSpaces++;
 
+        let insertSpace = true;
         line?.forEach((separatedElement) =>
         {
             let classification = 'ERROR';
@@ -107,8 +108,13 @@ function generateTokenList(code: string) {
                 line: lineIndex+1
             }
             
-            // Inserting spaces
-            if(!['SEMICOLON', 'DOT'].includes(newToken.classification)) answer.push(<span key={i++}>&nbsp;</span>);
+            // Don't insert a space before this symbol
+            if(!['SEMICOLON', 'DOT', 'OPEN_B', 'OPEN_P', 'CLOSE_B', 'CLOSE_P'].includes(newToken.classification) && insertSpace) answer.push(<span key={i++}>&nbsp;</span>);
+
+            insertSpace = true;
+
+            // Don't insert a space after this symbol
+            if(['DOT', 'OPEN_B', 'OPEN_P'].includes(newToken.classification)) insertSpace = false;
 
             let tokenClass:string|undefined; 
 
@@ -121,7 +127,7 @@ function generateTokenList(code: string) {
             if(tokenClass) answer.push(<code key={i++} className={style[tokenClass]}>{newToken.lexema}</code>)
             else answer.push(<code key={i++}>{newToken.lexema}</code>);
 
-            if(newToken.classification == 'BLOCK_BEGIN') numOfSpaces += 1;
+            if(newToken.classification == 'BLOCK_BEGIN' || newToken.classification == 'TYPE_RECORD') numOfSpaces += 1;
             else if(newToken.classification == 'BLOCK_END' && numOfSpaces!=0) numOfSpaces -= 1;
         });
         answer.push(<br key={i++}/>);
