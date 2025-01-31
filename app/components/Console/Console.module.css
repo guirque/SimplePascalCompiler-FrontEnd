@@ -1,7 +1,8 @@
 .console
 {
     background-color: #060606;
-    height: 30vh;
+    height: 20vh;
+    overflow-y: auto;
     width: 50vw;
     grid-area: console;
     display: flex;

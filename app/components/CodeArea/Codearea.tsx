@@ -9,7 +9,7 @@ const Codearea = (params:any) =>
 
     return (<>
     <main className={style.area}>
-        <textarea className={style.textarea}  onChange={(event) =>{params.changeCode(event.target.value)}}>
+        <textarea className={style.textarea}  onChange={(event) =>{params.changeCode(event.target.value)}} value={params.code}>
         </textarea>
         <SendDataButton code={params.code} changeOutput={params.changeOutput}></SendDataButton>
         <FormattedCodeArea code={params.code}></FormattedCodeArea>

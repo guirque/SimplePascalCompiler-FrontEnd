@@ -107,8 +107,8 @@ const Output = (params:any) =>
                     if(command.match(/.+:$/)) cmdType = 'cmdLabel';
                     else if(command.includes('\#')) cmdType = 'cmdComment';
                     
-                    if(cmdType) return <code key={'cmd'+i} className={style[cmdType]}>{command}{'\n'}</code>
-                    else return <code key={'cmd'+i}>{command}{'\n'}</code>
+                    if(cmdType) return <div key={'cmd'+i}><span className={style.lineNum}>{i}</span><code className={style[cmdType]}>{command}{'\n'}</code></div>
+                    else return <div key={'cmd'+i}><span className={style.lineNum}>{i}</span><code>{command}{'\n'}</code></div>
                 });
             break;
     }
