@@ -1,16 +1,20 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 
 import style from './codearea.module.css'
+import FormattedCodeArea from "./FormattedCodeArea";
 import SendDataButton from "./SendDataButton/SendDataButton";
 
 const Codearea = (params:any) =>
 {
-    return (
+
+    return (<>
     <main className={style.area}>
-        <textarea className={style.textarea}  onChange={(event) =>{params.changeCode(event.target.value)}}>
+        <textarea className={style.textarea}  onChange={(event) =>{params.changeCode(event.target.value)}} value={params.code}>
         </textarea>
         <SendDataButton code={params.code} changeOutput={params.changeOutput}></SendDataButton>
+        <FormattedCodeArea code={params.code}></FormattedCodeArea>
     </main>
+    </>
     );
 }
 export default Codearea;

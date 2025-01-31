@@ -2,6 +2,7 @@
 {
     background-color: #060606;
     height: 20vh;
+    overflow-y: auto;
     width: 50vw;
     grid-area: console;
     display: flex;

@@ -75,3 +75,21 @@
     text-align: left;
     width: 160%;
 }
+
+.cmdLabel
+{
+    color: red;
+}
+
+.cmdComment
+{
+    color: grey;
+}
+
+.lineNum
+{
+    margin-right: 0.2em;
+    width: 2em;
+    display: inline-block;
+    color: lightgray;
+}

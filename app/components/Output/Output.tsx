@@ -53,9 +53,11 @@ const Output = (params:any) =>
                 });
             break;
         case 'Syntactic':
+            if(!data.syntactic) break;
             outputData = [renderTree(data.syntactic)];
             break;
         case 'Semantic':
+            if(!data.semantic) break;
             let headers: React.JSX.Element[] = [];
             let rows: React.JSX.Element[] = [];
 
@@ -96,11 +98,22 @@ const Output = (params:any) =>
                     {rows}
                 </tbody>
             </table>;
-
+            break;
+        case 'Interm. Code':
+            if(!data.intermediaryCode) break;
+            outputData = data.intermediaryCode.map((command:string, i:number)=>
+                {
+                    let cmdType = undefined;
+                    if(command.match(/.+:$/)) cmdType = 'cmdLabel';
+                    else if(command.includes('\#')) cmdType = 'cmdComment';
+                    
+                    if(cmdType) return <div key={'cmd'+i}><span className={style.lineNum}>{i}</span><code className={style[cmdType]}>{command}{'\n'}</code></div>
+                    else return <div key={'cmd'+i}><span className={style.lineNum}>{i}</span><code>{command}{'\n'}</code></div>
+                });
             break;
     }
 
-    let types = ['Lexical', 'Syntactic', 'Semantic'];
+    let types = ['Lexical', 'Syntactic', 'Semantic', 'Interm. Code'];
     let elements = types.map((phase)=>
         {
             const colorAttr = (currentPhase == phase) ? 'var(--shade)' :  'var(--darker-shade)';
